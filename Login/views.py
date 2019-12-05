@@ -2,6 +2,8 @@ from flask import Blueprint, render_template
 from flask import request, Flask, redirect, url_for
 from flask import render_template, redirect, url_for
 
+from dashboard.views import dashboard
+
 board = Blueprint('board', __name__)
 
 
@@ -13,10 +15,11 @@ def login():
 		username = request.form['username']
 		password = request.form['password']
 		# pass this username and password to method for sso validation
-		return redirect(url_for('board.display_orkai_dashboard_page'))
+		return redirect(url_for('dashboard.display_orkai_dashboard_page'))
 
 
-@board.route('/orkai_dashboard')  # Route for the page
-def display_orkai_dashboard_page():
-	return render_template('orkai_dashboard.html', num=10)
+# @board.route('/orkai_dashboard')  # Route for the page
+# def display_orkai_dashboard_page():
+# 	print
+# 	return render_template('orkai_dashboard.html', num=10)
 

@@ -1,6 +1,7 @@
 # app.py or app/__init__.py
 from flask import Flask
 from Login.views import board
+from dashboard.views import dashboard
 
 app = Flask(__name__)
 # Load the default configuration
@@ -8,6 +9,9 @@ app.config.from_pyfile('config.py')
 
 # register login route
 app.register_blueprint(board)
+
+# register dashboard route
+app.register_blueprint(dashboard)
 
 # @app.route("/")
 # def login():
