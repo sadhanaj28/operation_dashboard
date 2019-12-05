@@ -1,5 +1,5 @@
 body {
-  font: 60px/40px "Lucida Grande", Tahoma, Verdana, sans-serif;
+  font: 15px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #f1f1f1;
 }
@@ -166,4 +166,12 @@ input[type=submit]:active {
 
 .lt-ie9 input[type=text], .lt-ie9 input[type=password] {
   line-height: 34px;
+}
+
+.div.error {
+  white-space: nowrap;
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #000000;
 }

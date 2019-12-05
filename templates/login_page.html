@@ -8,13 +8,17 @@
 </head>
 <body>
 	<div class="login">
-  <h1>Operation Dashboard</h1>
-  <form method="post" action="{{ url_for('board.login') }}">
-    <p><input type="text" name="username" value="" placeholder="Username" required></p>
-    <p><input type="password" name="password" value="" placeholder="Password" required></p>
-    <p class="submit"><input type="submit" name="commit" value="Login"></p>
-  </form>
-</div>
+      <h1>Operation Dashboard</h1>
+        {% if error_message %}
+        <p style="color:red;">Message:{{ error_message }}, please contact to administrator</p>
+        <br/>
+        {% endif %}
+      <form method="post" action="{{ url_for('board.login') }}">
+        <p><input type="text" name="username" value="" placeholder="Username" required></p>
+        <p><input type="password" name="password" value="" placeholder="Password" required></p>
+        <p class="submit"><input type="submit" name="commit" value="Login"></p>
+      </form>
+    </div>
 
 </body>
 <!--<script type='text/javascript' src="{{url_for('static', filename='js/login.js')}}"></script>-->

@@ -10,23 +10,23 @@
     <div class="w3-row">
       <div class="w3-col m10 w3-container">
         <form action = "{{ url_for('dashboard.display_orkai_dashboard_page') }}" method = "POST">
-           <p>Server <input type = "text" name = "server" /></p>
-           <p>Source Path <input type = "text" name = "source_path" /></p>
-           <p>Destination Path <input type = "text" name = "destination_path" /></p>
+           <p>Server <input type = "text" name = "server" required/></p>
+           <p>Source Path <input type = "text" name = "source_path" required/></p>
+           <p>Destination Path <input type = "text" name = "destination_path" required/></p>
            <p>File Name Type
-                <select name="file_name_type">
+                <select name="file_name_type" required>
                   <option value="single_file_name">Single File Name</option>
                   <option value="patern_file_name">Pattern File Name</option>
                 </select>
            </p>
-          <p>File Name <input type = "text" name = "file_name" /></p>
+          <p>File Name <input type = "text" name = "file_name" required/></p>
            <p><input type = "submit" value = "submit" /></p>
         </form>
-        {% if error %}
-          <p class=error><strong>Error:</strong> {{ error }}
+        {% if error_message %}
+          <p class=error style="color:red;"><strong>Message:</strong> {{ error_message }}
         {% endif %}
-        {% if error %}
-          <p class=success><strong>Success:</strong> {{ success }}
+        {% if success_message %}
+          <p class=success style="color:green;"><strong>Message:</strong> {{ success_message }}
         {% endif %}
       </div>
     </div>

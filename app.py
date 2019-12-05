@@ -1,9 +1,12 @@
 # app.py or app/__init__.py
-from flask import Flask
+from flask import Flask, session
+from flask_session.__init__ import Session
 from Login.views import board
 from dashboard.views import dashboard
 
+
 app = Flask(__name__)
+
 # Load the default configuration
 app.config.from_pyfile('config.py')
 
@@ -13,18 +16,14 @@ app.register_blueprint(board)
 # register dashboard route
 app.register_blueprint(dashboard)
 
-# @app.route("/")
-# def login():
-#     return redirect('/dashboard.html')
+#session setup
+app.config['SESSION_TYPE'] = 'memcached'
+app.config['SECRET_KEY'] = 'super secret key'
+sess = Session()
 
 if __name__ == '__main__':
     app.run()  # Run our application
 
-
-# def create_app(config_file):
-# 	app.config.from_pyfile(config_file)  # Configure application with settings file, not strictly necessary
-# 	app.register_blueprint(login_view)  # Register url's so application knows what to do
-# 	return app
 
 # Load the configuration from the instance folder
 # app.config.from_pyfile('config.py')
